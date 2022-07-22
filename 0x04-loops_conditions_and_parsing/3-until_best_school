@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# to print 10 times using until
+
+n=0
+until [ $n -gt 10 ]
+do
+	echo "Best School"
+done
