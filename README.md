@@ -1,1 +1,1 @@
-script shell
+dev ops
