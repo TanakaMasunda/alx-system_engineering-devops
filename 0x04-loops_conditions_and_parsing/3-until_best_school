@@ -2,7 +2,8 @@
 # to print 10 times using until
 
 n=0
-until [ $n -gt 10 ]
+until [ $n -eq 10 ]
 do
 	echo "Best School"
+	(( n++ ))
 done

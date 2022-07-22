@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Bash script Displays information about the schoo file
+# Bash script Displays information about the school file.
 
 if [ -e "school" ]
 then
@@ -10,7 +10,6 @@ then
 	else
 		echo "school file is empty"
 	fi
-
 
 	if [ -f "school" ]
 	then
