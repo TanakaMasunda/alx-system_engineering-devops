@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# script to display best school 10 times no while or until
+
+for ((i = 0; i < 10; i++));
+do
+	echo "Best School"
+done
