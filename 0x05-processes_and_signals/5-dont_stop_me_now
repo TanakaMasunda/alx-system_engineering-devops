@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# We stopped our previuos process using ctrl+c in the previous task,
+# another way to do this, You must use kill
+
+# Get the pid of the program
+
+id=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
+
+# Terminate the infinate process
+
+if [ -n "$id" ]
+then
+	kill -15 "$id"
+fi
