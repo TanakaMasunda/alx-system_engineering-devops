@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Prints a string and catches signals
+# Creates the file /var/run/myscript.pid containing its PID,infinite loop
+# Displays I hate the kill command when receiving a SIGTERM signal
+# Displays Y U no love me?! when receiving a SIGINT signal,Deletes the file 
+# /var/run/myscript.pid,terminate itself whn receiving a SIGQUIT/SIGTERM signal
+
+clean_up_action='rm /var/run/myscript.pid; exit $?'
+
+echo $$ > "/var/run/myscript.pid"
+trap 'echo "I hate the kill command"; '"$clean_up_action" SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap ''"$clean_up_action" SIGQUIT
+
+while true; do
+	echo "To infinity and beyond"
+done
