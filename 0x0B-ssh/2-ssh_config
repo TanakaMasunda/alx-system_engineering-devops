@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configuring  connecting to server without using password
+
+ssh -v ubuntu@3.80.2.93
+SendEnv LANG LC_*
+HashKnownHosts yes
+GSSAPIAuthentication yes
+GSSAPIDelegateCredentials no
+IdentityFile ~/.ssh/school
+PasswordAuthentication no
