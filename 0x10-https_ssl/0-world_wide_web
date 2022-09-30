@@ -2,17 +2,21 @@
 #Displays information about subdomains and points to IP addresses
 #1 - domain, 2 - subdomain .
 
-if [[ $2 = "www" ]]; then
-	echo "The subdomain ${2} is a A record and points to 3.227.3.105"
-elif [[ $2 = "lb-01" ]]; then
-	echo "The subdomain ${2} is a A record and points to 3.227.3.105"
-elif [[ $2 = "web-01" ]]; then
-	echo "The subdomain ${2} is a A record and points to 34.204.187.237"
-elif [[ $2 = "web-o2" ]]; then
-	echo "The subdomain ${2} is a A record and points to 44.210.85.120"
+fetch_subdomains() {
+domain="$1"
+subdomains=()
+readarray -t subdomains <<(echo "$2"| tr '' '\n')
+for ((i=0;i<"${#subdomains[@]}";i++)) do 
+subdomain="${subdomains[i]}"
+
+output_awk='{print "The subdomain","
+output_awk="$output_awk$
+done
+}
+if ["${#BASH_ARGV[@]}"-ge '2'];then
+fetch_subdomains "$1""$2"
+elif [ "${BASH_ARGV[@]}"-ge '1'];
+then fetch_subdomains "$1""www lb-01 web-01 web-02"
 else
-	echo "The subdomain www is a A record and points to 3.227.3.105"
-	echo "The subdomain lb-01 is a A record and points to 3.227.3.105"
-	echo "The subdomain web-01 is a A record and points to 34.204.187.237"
-	echo "The subdomain web-02 is a A record and points to 44.210.85.120"
+exit
 fi
