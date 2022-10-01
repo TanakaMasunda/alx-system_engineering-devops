@@ -32,3 +32,13 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
+
+frontend manage_entry                                                                                                                   
+          bind *:80                                                                                                                     
+          bind 0.0.0.0:443 ssl crt /etc/ssl/private/mydomain.pem                                                                        
+          default_backend my_web_servers                                                                                               
+
+backend my_web_servers                                                                                                                  
+        balance static-rr                                                                                                               
+        server 16842-web-01 34.204.187.237:80 check                                                                                       
+        server 16842-web-02 44.210.85.120:80 check
